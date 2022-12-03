@@ -1,0 +1,29 @@
+plugins {
+    id 'idea'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = false
+    }
+}
+
+dependencies {
+    testImplementation(platform('org.junit:junit-bom:5.8.2'))
+    testImplementation('org.junit.jupiter:junit-jupiter')
+    testImplementation "org.assertj:assertj-core:3.21.0"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+wrapper{
+    gradleVersion = '7.6'
+}
